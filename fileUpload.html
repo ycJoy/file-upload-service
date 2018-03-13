@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>文件上传前端测试</title> 
+</head>
+<body>
+
+<form id="upload-form" action="http://ip:8000/upload" enctype="multipart/form-data" method="post">
+  <input id="selece-files" type="file" name="fileToUpload" />
+  <input id="do-upload" type="submit" value="上传" />
+</form>
+
+<p>文件上传前端调用后端node服务，点击"提交"按钮，表单数据将被发送到服务器上的“http://ip:8000/upload”。ip修改为服务器ip地址</p>
+
+</body>
+</html>
