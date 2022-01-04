@@ -1,6 +1,6 @@
 /*
 	
-	ÎÄ¼şÉÏ´«·şÎñ¶Ë node½Ó¿Ú--½ÓÊÕÇ°¶ËÉÏ´«µÄÎÄ¼ş
+	æ–‡ä»¶ä¸Šä¼ æœåŠ¡ç«¯ nodeæ¥å£--æ¥æ”¶å‰ç«¯ä¸Šä¼ çš„æ–‡ä»¶
 
 */
 
@@ -9,11 +9,11 @@ var express = require('express');
 var app = express();
 var formidable = require('formidable');
 
-app.post('/upload', function(req, res) {//Ç°¶Ëµ÷ÓÃµØÖ·£º  http://ip:8000/upload
+app.post('/upload', function(req, res) {//å‰ç«¯è°ƒç”¨åœ°å€ï¼š  http://ip:8000/upload
   var form = new formidable.IncomingForm(),
     data;
 
-  // formidable ÊôĞÔÉèÖÃ¿ÉÒÔ²Î¿¼ github ÉÏËµÃ÷
+  // formidable å±æ€§è®¾ç½®å¯ä»¥å‚è€ƒ github ä¸Šè¯´æ˜
   form.uploadDir = './uploads';
   form.encoding = 'utf-8';
   form.keepExtensions = true;
@@ -23,10 +23,10 @@ app.post('/upload', function(req, res) {//Ç°¶Ëµ÷ÓÃµØÖ·£º  http://ip:8000/upload
     console.log('on parse');
     res.writeHead(200, {'content-type': 'text/plain'});
     data = files.fileToUpload;
-    res.end(JSON.stringify(data));//·µ»Øµ÷ÓÃ½á¹û
+    res.end(JSON.stringify(data));//è¿”å›è°ƒç”¨ç»“æœ
   });
 
-  // ÎÒÃÇ¿ÉÒÔÔÚÎÄ¼şÉÏ´«Íê³ÉºóÒÆµ½·ÅÖÃÎÄ¼şµÄÄ¿±êÄ¿Â¼
+  // æˆ‘ä»¬å¯ä»¥åœ¨æ–‡ä»¶ä¸Šä¼ å®Œæˆåç§»åˆ°æ”¾ç½®æ–‡ä»¶çš„ç›®æ ‡ç›®å½•
   form.on('end', function() {
     fs.renameSync(data.path, './uploads/'+ data.name);
   });
